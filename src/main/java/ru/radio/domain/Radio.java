@@ -27,7 +27,50 @@ public class Radio {
         }
         this.currentVolume = currentVolume;
     }
+
     public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setNext() {
+        if (currentStation == 9) {
+            currentStation = 0;
+        } else currentStation++;
+    }
+
+    public int getNext() {
+        return currentStation;
+    }
+
+    public void setPrev() {
+        if (currentStation == 0) {
+            currentStation = 9;
+        } else currentStation--;
+    }
+
+    public int getPrev() {
+        return currentStation;
+    }
+
+    public void setVolumePlus() {
+        if (currentVolume == 10) {
+            return;
+        }
+        currentVolume++;
+    }
+
+    public int getVolumePlus() {
+        return currentVolume;
+    }
+
+    public void setVolumeMinus() {
+        if (currentVolume == 0) {
+            return;
+        }
+        currentVolume--;
+    }
+
+    public int getVolumeMinus() {
         return currentVolume;
     }
 }
