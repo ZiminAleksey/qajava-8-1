@@ -1,5 +1,12 @@
 package ru.radio.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
     private int currentStation;
     private int currentVolume;
@@ -8,10 +15,6 @@ public class Radio {
 
     public Radio(int amountStation) {
         this.amountStation = amountStation;
-    }
-
-    public Radio() {
-
     }
 
     public void setCurrentStation(int currentStation) {
@@ -24,10 +27,6 @@ public class Radio {
         this.currentStation = currentStation;
     }
 
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume < 0) {
             return;
@@ -38,20 +37,12 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
     public void setNext() {
         if (currentStation == amountStation - 1) {
             currentStation = 0;
         } else {
             currentStation++;
         }
-    }
-
-    public int getNext() {
-        return currentStation;
     }
 
     public void setPrev() {
@@ -62,10 +53,6 @@ public class Radio {
         }
     }
 
-    public int getPrev() {
-        return currentStation;
-    }
-
     public void setVolumePlus() {
         if (currentVolume == maxVolume) {
             return;
@@ -73,18 +60,10 @@ public class Radio {
         currentVolume++;
     }
 
-    public int getVolumePlus() {
-        return currentVolume;
-    }
-
     public void setVolumeMinus() {
         if (currentVolume == 0) {
             return;
         }
         currentVolume--;
-    }
-
-    public int getVolumeMinus() {
-        return currentVolume;
     }
 }
