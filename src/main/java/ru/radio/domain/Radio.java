@@ -5,9 +5,11 @@ public class Radio {
     private int currentVolume;
     private int amountStation = 10;
     private int maxVolume = 100;
+
     public Radio(int amountStation) {
         this.amountStation = amountStation;
     }
+
     public Radio() {
 
     }
@@ -43,8 +45,7 @@ public class Radio {
     public void setNext() {
         if (currentStation == amountStation - 1) {
             currentStation = 0;
-        }
-        else {
+        } else {
             currentStation++;
         }
     }
@@ -56,8 +57,7 @@ public class Radio {
     public void setPrev() {
         if (currentStation == 0) {
             currentStation = amountStation - 1;
-        }
-        else {
+        } else {
             currentStation--;
         }
     }
