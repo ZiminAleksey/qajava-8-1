@@ -3,12 +3,22 @@ package ru.radio.domain;
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int amountStation = 10;
+    private int maxVolume = 100;
+
+    public Radio(int amountStation) {
+        this.amountStation = amountStation;
+    }
+
+    public Radio() {
+
+    }
 
     public void setCurrentStation(int currentStation) {
         if (currentStation < 0) {
             return;
         }
-        if (currentStation > 9) {
+        if (currentStation > amountStation - 1) {
             return;
         }
         this.currentStation = currentStation;
@@ -22,7 +32,7 @@ public class Radio {
         if (currentVolume < 0) {
             return;
         }
-        if (currentVolume > 10) {
+        if (currentVolume > maxVolume) {
             return;
         }
         this.currentVolume = currentVolume;
@@ -33,9 +43,11 @@ public class Radio {
     }
 
     public void setNext() {
-        if (currentStation == 9) {
+        if (currentStation == amountStation - 1) {
             currentStation = 0;
-        } else currentStation++;
+        } else {
+            currentStation++;
+        }
     }
 
     public int getNext() {
@@ -44,8 +56,10 @@ public class Radio {
 
     public void setPrev() {
         if (currentStation == 0) {
-            currentStation = 9;
-        } else currentStation--;
+            currentStation = amountStation - 1;
+        } else {
+            currentStation--;
+        }
     }
 
     public int getPrev() {
@@ -53,7 +67,7 @@ public class Radio {
     }
 
     public void setVolumePlus() {
-        if (currentVolume == 10) {
+        if (currentVolume == maxVolume) {
             return;
         }
         currentVolume++;
